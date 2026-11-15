@@ -4,292 +4,373 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rodrigo Ugarte · Proyectos</title>
-<meta name="description" content="Proyectos de Rodrigo Ugarte Kunisky: integraciones, automatización con IA, desarrollo web y astrofísica computacional.">
+<meta name="description" content="Proyectos de Rodrigo Ugarte Kunisky: integraciones de sistemas, automatización con IA, desarrollo web y astrofísica computacional.">
 <meta property="og:title" content="Rodrigo Ugarte · Proyectos">
 <meta property="og:description" content="Integraciones, automatización con IA, web y astrofísica computacional.">
 <meta property="og:image" content="https://gaspcr.github.io/avatar.png">
 <link rel="icon" href="avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#ffffff; --bg-subtle:#f6f8fa; --bg-inset:#eff2f5; --border:#d0d7de; --border-muted:#d8dee4;
-  --fg:#1f2328; --fg-muted:#59636e; --accent:#0969da; --accent-subtle:#ddf4ff;
-  --success:#1a7f37; --btn:#1f883d; --btn-hover:#1a7f37; --attention:#9a6700;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0d1117; --bg-subtle:#151b23; --bg-inset:#010409; --border:#3d444d; --border-muted:#2a313c;
-    --fg:#f0f6fc; --fg-muted:#9198a1; --accent:#4493f8; --accent-subtle:#388bfd1a;
-    --success:#3fb950; --btn:#238636; --btn-hover:#29903b; --attention:#d29922;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0d1117; --bg-subtle:#151b23; --bg-inset:#010409; --border:#3d444d; --border-muted:#2a313c;
-  --fg:#f0f6fc; --fg-muted:#9198a1; --accent:#4493f8; --accent-subtle:#388bfd1a;
-  --success:#3fb950; --btn:#238636; --btn-hover:#29903b; --attention:#d29922;
+  --bg:#0d1117; --bg-2:#151b23; --bg-3:#010409; --border:#3d444d; --border-2:#262c36;
+  --fg:#f0f6fc; --fg-2:#9198a1; --fg-3:#656c76;
+  --blue:#4493f8; --green:#3fb950; --purple:#ab7df8; --orange:#f0883e; --pink:#db61a2;
+  --btn:#238636; --btn-h:#2ea043;
+  --glow-a:rgba(171,125,248,.22); --glow-b:rgba(68,147,248,.18); --glow-c:rgba(63,185,80,.12);
   color-scheme:dark;
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-code,.mono{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
-svg{fill:currentColor;flex-shrink:0}
-
-/* header */
-.top{background:var(--bg-inset);border-bottom:1px solid var(--border-muted)}
-.top-in{max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:12px}
-.top-in .crumb{font-size:14px;color:var(--fg);font-weight:600}
-.top-in .crumb span{color:var(--fg-muted);font-weight:400}
-.spacer{flex:1}
-.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--fg-muted);cursor:pointer}
-.icon-btn:hover{background:var(--bg-subtle);color:var(--fg)}
-
-.tabs{border-bottom:1px solid var(--border-muted);background:var(--bg-inset)}
-.tabs-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-.tab{display:flex;align-items:center;gap:8px;padding:8px 8px 10px;color:var(--fg);font-size:14px;border:0;background:none;cursor:pointer;position:relative;white-space:nowrap;font-family:inherit}
-.tab svg{color:var(--fg-muted)}
-.tab .count{background:var(--bg-subtle);border:1px solid var(--border-muted);border-radius:2em;padding:0 6px;font-size:12px;font-weight:500;color:var(--fg)}
-.tab:hover::before{content:"";position:absolute;inset:4px 0 6px;background:var(--bg-subtle);border-radius:6px;z-index:-1}
-.tab[aria-selected="true"]{font-weight:600}
-.tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#fd8c73;border-radius:6px}
-
-/* layout */
-.wrap{max-width:1280px;margin:0 auto;padding:24px;display:grid;grid-template-columns:296px 1fr;gap:32px}
-@media (max-width:860px){.wrap{grid-template-columns:1fr;gap:16px;padding:16px}}
-
-/* profile */
-.profile img{width:100%;max-width:296px;aspect-ratio:1;border-radius:50%;border:1px solid var(--border);display:block}
-.profile h1{margin:16px 0 0;font-size:24px;line-height:1.25;font-weight:600}
-.profile .login{font-size:20px;font-weight:300;color:var(--fg-muted);line-height:24px}
-.profile .bio{font-size:16px;margin:16px 0}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:5px 16px;font-size:14px;font-weight:500;line-height:20px;border-radius:6px;border:1px solid var(--border);background:var(--bg-subtle);color:var(--fg);cursor:pointer}
-.btn:hover{text-decoration:none;filter:brightness(1.06)}
-.btn-primary{background:var(--btn);border-color:rgba(240,246,252,.1);color:#fff}
-.btn-primary:hover{background:var(--btn-hover)}
-.btns{display:grid;gap:8px;margin-bottom:16px}
-.meta{list-style:none;padding:0;margin:0;display:grid;gap:4px;color:var(--fg)}
-.meta li{display:flex;align-items:center;gap:8px}
-.meta svg{color:var(--fg-muted)}
-.sep{border:0;border-top:1px solid var(--border-muted);margin:16px 0}
-.side h2{font-size:16px;font-weight:600;margin:0 0 8px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;padding:0 10px;font-size:12px;font-weight:500;line-height:22px;border-radius:2em;background:var(--accent-subtle);color:var(--accent)}
-@media (max-width:860px){
-  .profile{display:grid;grid-template-columns:88px 1fr;gap:0 16px;align-items:center}
-  .profile img{width:88px}
-  .profile h1{margin:0}
-  .profile .bio,.profile .btns,.profile .meta{grid-column:1/-1}
-  .profile .bio{margin:12px 0}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#ffffff; --bg-2:#f6f8fa; --bg-3:#eff2f5; --border:#d0d7de; --border-2:#e1e4e8;
+    --fg:#1f2328; --fg-2:#59636e; --fg-3:#818b98;
+    --blue:#0969da; --green:#1a7f37; --purple:#8250df; --orange:#bc4c00; --pink:#bf3989;
+    --btn:#1f883d; --btn-h:#1a7f37;
+    --glow-a:rgba(130,80,223,.12); --glow-b:rgba(9,105,218,.10); --glow-c:rgba(26,127,55,.08);
+    color-scheme:light;
+  }
 }
+:root[data-theme="light"]{
+  --bg:#ffffff; --bg-2:#f6f8fa; --bg-3:#eff2f5; --border:#d0d7de; --border-2:#e1e4e8;
+  --fg:#1f2328; --fg-2:#59636e; --fg-3:#818b98;
+  --blue:#0969da; --green:#1a7f37; --purple:#8250df; --orange:#bc4c00; --pink:#bf3989;
+  --btn:#1f883d; --btn-h:#1a7f37;
+  --glow-a:rgba(130,80,223,.12); --glow-b:rgba(9,105,218,.10); --glow-c:rgba(26,127,55,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "Mona Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.container{padding:0 16px}}
+svg{flex-shrink:0}
 
-/* readme */
-.box{border:1px solid var(--border);border-radius:6px;background:var(--bg)}
-.box-h{display:flex;align-items:center;gap:8px;padding:8px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--fg-muted)}
-.box-h b{color:var(--fg);font-weight:600}
-.box-b{padding:24px 32px}
-@media (max-width:600px){.box-b{padding:16px}}
-.readme h2{font-size:24px;margin:0 0 16px;padding-bottom:.3em;border-bottom:1px solid var(--border-muted);font-weight:600}
-.readme p{margin:0 0 12px;font-size:16px}
-.readme ul{margin:0;padding-left:2em;font-size:16px}
-.readme li+li{margin-top:4px}
-.readme code{font-size:85%;padding:.2em .4em;background:var(--bg-subtle);border-radius:6px}
+/* nav */
+.nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--border-2)}
+.nav-in{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
+.brand img{width:32px;height:32px;border-radius:50%;border:1px solid var(--border)}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:15px;color:var(--fg-2)}
+.nav-links a:hover{color:var(--fg)}
+.theme{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--fg-2);cursor:pointer;display:grid;place-items:center}
+.theme:hover{color:var(--fg);background:var(--bg-2)}
+@media (max-width:720px){.nav-links{display:none}.theme{margin-left:auto}}
 
-/* projects */
-.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:24px 0 8px}
-.sec-h h2{font-size:16px;font-weight:400;margin:0}
-.sec-h small{color:var(--fg-muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0}
-@media (max-width:700px){.grid{grid-template-columns:1fr}}
-.card{border:1px solid var(--border);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
-.card[hidden]{display:none}
-.card-h{display:flex;align-items:center;gap:8px;min-width:0}
-.card-h svg{color:var(--fg-muted)}
-.card-h .name{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.card-h .name a,.card-h .name span{color:var(--accent)}
-.label{margin-left:auto;font-size:12px;font-weight:500;line-height:18px;padding:0 7px;border:1px solid var(--border);border-radius:2em;color:var(--fg-muted);white-space:nowrap}
-.card p{margin:0;color:var(--fg-muted);font-size:12px;flex:1}
-.topics{display:flex;flex-wrap:wrap;gap:4px}
-.topics .chip{font-size:11px;line-height:20px;padding:0 8px}
-.card-f{display:flex;flex-wrap:wrap;align-items:center;gap:16px;font-size:12px;color:var(--fg-muted)}
-.card-f a{color:var(--fg-muted);display:inline-flex;align-items:center;gap:4px}
-.card-f a:hover{color:var(--accent)}
-.lang{display:inline-flex;align-items:center;gap:4px}
-.dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:inline-block}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;font-weight:600;font-size:16px;border:1px solid var(--border);transition:transform .15s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--btn);border-color:transparent;color:#fff}
+.btn-primary:hover{background:var(--btn-h)}
+.btn-ghost{background:transparent;color:var(--fg)}
+.btn-ghost:hover{border-color:var(--fg-3);background:var(--bg-2)}
 
-/* languages */
-.langs{padding:16px}
-.bar{display:flex;height:8px;border-radius:6px;overflow:hidden;gap:2px;background:var(--bg-subtle)}
-.bar span{display:block}
-.lang-list{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px}
-.lang-list li{display:flex;align-items:center;gap:6px}
-.lang-list b{font-weight:600}
-.lang-list li>span:last-child{color:var(--fg-muted)}
+/* hero */
+.hero{position:relative;padding:112px 0 96px;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-120px -20% auto;height:720px;z-index:-1;
+  background:radial-gradient(40% 50% at 30% 30%,var(--glow-a),transparent 70%),radial-gradient(35% 45% at 70% 25%,var(--glow-b),transparent 70%),radial-gradient(30% 40% at 55% 70%,var(--glow-c),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:radial-gradient(var(--border-2) 1px,transparent 1px);background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 40%,#000,transparent);mask-image:radial-gradient(ellipse 60% 60% at 50% 40%,#000,transparent)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border:1px solid var(--border);border-radius:999px;font-size:14px;color:var(--fg-2);background:color-mix(in srgb,var(--bg-2) 70%,transparent)}
+.pill b{background:var(--green);color:var(--bg);font-size:12px;padding:1px 8px;border-radius:999px;font-weight:600}
+.hero h1{font-size:clamp(40px,7vw,80px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:24px 0 24px;max-width:15ch}
+.grad{background:linear-gradient(92deg,var(--purple),var(--blue) 50%,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(18px,2.2vw,22px);color:var(--fg-2);max-width:58ch;margin:0 0 36px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
 
-footer{max-width:1280px;margin:0 auto;padding:32px 24px 48px;color:var(--fg-muted);font-size:12px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:center;border-top:1px solid var(--border-muted)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-2);border-radius:12px;margin-top:72px;background:color-mix(in srgb,var(--bg-2) 60%,transparent)}
+.stat{padding:24px}
+.stat+.stat{border-left:1px solid var(--border-2)}
+.stat strong{display:block;font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.stat span{color:var(--fg-2);font-size:14px}
+@media (max-width:720px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--border-2)}}
+
+/* sections */
+section.block{padding:96px 0;border-top:1px solid var(--border-2)}
+.eyebrow{font-size:14px;font-weight:600;letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
+.block h2{font-size:clamp(30px,4.4vw,48px);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin:0 0 16px;max-width:22ch}
+.block .sub{color:var(--fg-2);font-size:18px;max-width:60ch;margin:0 0 48px}
+
+/* featured */
+.feature{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+@media (max-width:900px){.feature{grid-template-columns:1fr}}
+.flow{border:1px solid var(--border);border-radius:12px;background:var(--bg-3);padding:28px;position:relative;overflow:hidden}
+.flow::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 0%,var(--glow-b),transparent 70%);pointer-events:none}
+.flow svg{width:100%;height:auto;display:block;position:relative}
+.flow .node rect{fill:var(--bg-2);stroke:var(--border)}
+.flow .node text{fill:var(--fg);font:600 13px "Mona Sans",sans-serif}
+.flow .node text.s{fill:var(--fg-2);font-weight:400;font-size:11px}
+.flow .hub rect{stroke:var(--purple);stroke-width:1.5}
+.flow .wire{stroke:var(--border);stroke-width:1.5;fill:none}
+.flow .pulse{stroke-width:2;fill:none;stroke-dasharray:6 200;animation:flow 3s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-206}}
+@media (prefers-reduced-motion:reduce){.flow .pulse{animation:none;display:none}}
+.feat-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+.feat-list li{display:grid;grid-template-columns:28px 1fr;gap:12px}
+.feat-list .ic{width:28px;height:28px;border-radius:7px;display:grid;place-items:center;background:var(--bg-2);border:1px solid var(--border-2)}
+.feat-list b{display:block;font-weight:600}
+.feat-list span{color:var(--fg-2);font-size:15px}
+
+/* project cards */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:960px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.cards{grid-template-columns:1fr}}
+.card{position:relative;border:1px solid var(--border-2);border-radius:12px;padding:24px;background:var(--bg-2);display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--border);transform:translateY(-2px)}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:12px;padding:1px;background:linear-gradient(140deg,var(--c),transparent 45%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .2s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .ico{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.card h3{margin:0;font-size:18px;font-weight:650;letter-spacing:-.01em}
+.card p{margin:0;color:var(--fg-2);font-size:15px;flex:1}
+.card .foot{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tag{font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--border-2);color:var(--fg-2)}
+.card .link{margin-left:auto;font-size:14px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:4px}
+.card .link:hover{text-decoration:underline}
+.c-blue{--c:var(--blue)} .c-green{--c:var(--green)} .c-purple{--c:var(--purple)} .c-orange{--c:var(--orange)} .c-pink{--c:var(--pink)}
+
+/* science */
+.sci{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media (max-width:900px){.sci{grid-template-columns:1fr}}
+.sky{aspect-ratio:4/3;border-radius:12px;border:1px solid var(--border);background:#010409;position:relative;overflow:hidden}
+.sky canvas{width:100%;height:100%;display:block}
+.sky .cap{position:absolute;left:12px;bottom:10px;font-size:12px;color:#9198a1}
+.sci-list{display:grid;gap:12px}
+.sci-item{border:1px solid var(--border-2);border-radius:12px;padding:18px 20px;background:var(--bg-2)}
+.sci-item h3{margin:0 0 4px;font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+.sci-item p{margin:0;color:var(--fg-2);font-size:15px}
+
+/* stack */
+.stack{display:flex;flex-wrap:wrap;gap:10px}
+.stack span{padding:8px 16px;border:1px solid var(--border-2);border-radius:999px;background:var(--bg-2);font-size:15px;display:inline-flex;align-items:center;gap:8px}
+.stack i{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+/* contact */
+.contact{text-align:center;padding:120px 0;position:relative;isolation:isolate;border-top:1px solid var(--border-2)}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 60% at 50% 100%,var(--glow-a),transparent 70%)}
+.contact h2{font-size:clamp(32px,5vw,56px);letter-spacing:-.03em;line-height:1.08;margin:0 auto 16px;max-width:18ch;font-weight:800}
+.contact p{color:var(--fg-2);font-size:18px;margin:0 auto 32px;max-width:52ch}
+.contact .cta{justify-content:center}
+
+footer{border-top:1px solid var(--border-2);padding:28px 0;color:var(--fg-3);font-size:14px}
+footer .container{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+footer a:hover{color:var(--fg)}
+footer .r{margin-left:auto;display:flex;gap:20px}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="top-in">
-    <svg width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
-    <div class="crumb">gaspcr <span>/</span> proyectos</div>
-    <div class="spacer"></div>
-    <button class="icon-btn" id="theme" type="button" aria-label="Cambiar tema" title="Cambiar tema">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.598 1.591a.749.749 0 0 1 .785-.175 7.001 7.001 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786Zm1.616 1.945a7 7 0 0 1-7.678 7.678 5.499 5.499 0 1 0 7.678-7.678Z"/></svg>
+<nav class="nav">
+  <div class="container nav-in">
+    <a class="brand" href="#"><img src="avatar.png" alt="" width="32" height="32">Rodrigo Ugarte</a>
+    <div class="nav-links">
+      <a href="#destacado">Destacado</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#ciencia">Ciencia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <button class="theme" id="theme" type="button" aria-label="Cambiar tema">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9.598 1.591a.749.749 0 0 1 .785-.175 7.001 7.001 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786Zm1.616 1.945a7 7 0 0 1-7.678 7.678 5.499 5.499 0 1 0 7.678-7.678Z"/></svg>
     </button>
-  </div>
-</header>
-
-<nav class="tabs" aria-label="Filtrar proyectos">
-  <div class="tabs-in" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-f="all">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z"/></svg>
-      Todos <span class="count"></span></button>
-    <button class="tab" role="tab" aria-selected="false" data-f="integracion">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.254V3.25v.005a.75.75 0 1 1 0-.005v.004Zm.45 1.9a2.25 2.25 0 1 0-1.95.218v5.256a2.25 2.25 0 1 0 1.5 0V7.123A5.735 5.735 0 0 0 9.25 9h1.378a2.251 2.251 0 1 0 0-1.5H9.25a4.25 4.25 0 0 1-3.8-2.346ZM12.75 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-8.5 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/></svg>
-      Integraciones <span class="count"></span></button>
-    <button class="tab" role="tab" aria-selected="false" data-f="ia">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.433 2.304A4.494 4.494 0 0 0 3.5 6c0 1.598.832 3.002 2.09 3.802.518.328.929.923.902 1.64v.008l-.164 3.337a.75.75 0 1 1-1.498-.073l.163-3.33c.002-.085-.05-.216-.207-.316A5.996 5.996 0 0 1 2 6a5.994 5.994 0 0 1 2.567-4.92 1.482 1.482 0 0 1 1.673-.04c.462.296.76.827.76 1.423v2.82c0 .082.041.16.11.206l.75.51a.25.25 0 0 0 .28 0l.75-.51A.249.249 0 0 0 9 5.282V2.463c0-.596.298-1.127.76-1.423a1.482 1.482 0 0 1 1.673.04A5.994 5.994 0 0 1 14 6a5.996 5.996 0 0 1-2.786 5.068c-.157.1-.209.23-.207.315l.163 3.33a.752.752 0 0 1-1.094.714.75.75 0 0 1-.404-.64l-.164-3.345c-.027-.717.384-1.312.902-1.64A4.495 4.495 0 0 0 12.5 6a4.494 4.494 0 0 0-1.933-3.696c-.024.017-.067.067-.067.16v2.818a1.75 1.75 0 0 1-.767 1.448l-.75.51a1.75 1.75 0 0 1-1.966 0l-.75-.51A1.75 1.75 0 0 1 5.5 5.282V2.463c0-.092-.043-.142-.067-.159Z"/></svg>
-      Automatización e IA <span class="count"></span></button>
-    <button class="tab" role="tab" aria-selected="false" data-f="web">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM5.78 8.75a9.64 9.64 0 0 0 1.363 4.177c.255.426.542.832.857 1.215.245-.296.551-.705.857-1.215A9.64 9.64 0 0 0 10.22 8.75Zm4.44-1.5a9.64 9.64 0 0 0-1.363-4.177c-.307-.51-.612-.919-.857-1.215a9.927 9.927 0 0 0-.857 1.215A9.64 9.64 0 0 0 5.78 7.25Zm-5.944 1.5H1.543a6.507 6.507 0 0 0 4.666 5.5c-.123-.181-.24-.365-.352-.552-.715-1.192-1.437-2.874-1.581-4.948Zm-2.733-1.5h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.507 6.507 0 0 0-4.666 5.5Zm10.181 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.507 6.507 0 0 0 4.666-5.5Zm2.733-1.5a6.507 6.507 0 0 0-4.666-5.5c.123.181.24.365.353.552.714 1.192 1.436 2.874 1.58 4.948Z"/></svg>
-      Web <span class="count"></span></button>
-    <button class="tab" role="tab" aria-selected="false" data-f="ciencia">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"/></svg>
-      Astrofísica <span class="count"></span></button>
   </div>
 </nav>
 
-<main class="wrap">
-  <aside class="side">
-    <div class="profile">
-      <img src="avatar.png" alt="Foto de perfil de Rodrigo Ugarte Kunisky" width="296" height="296">
-      <div>
-        <h1>Rodrigo Ugarte Kunisky</h1>
-        <div class="login">gaspcr</div>
-      </div>
-      <p class="bio">Conecto sistemas que no se hablaban: ERP, tiendas, agendas, WhatsApp y modelos de IA. También le enseño a redes neuronales a encontrar galaxias.</p>
-      <div class="btns">
-        <a class="btn btn-primary" href="https://github.com/gaspcr">
-          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
-          Ver perfil en GitHub</a>
-        <a class="btn" href="https://gaspcr.github.io/portfolio/#contacto">
-          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88Z"/></svg>
-          Contacto</a>
-      </div>
-      <ul class="meta">
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 16A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 0 0 .25-.25V8.285a.25.25 0 0 0-.111-.208l-1.055-.703a.749.749 0 1 1 .832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0 1 14.25 16h-3.5a.766.766 0 0 1-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 0 1-.75-.75V14h-1v1.25a.75.75 0 0 1-.75.75Zm-.25-1.75c0 .138.112.25.25.25H4v-1.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v1.25h2.25a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25ZM3.75 6h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 3.75A.75.75 0 0 1 3.75 3h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 3.75Zm4 3A.75.75 0 0 1 7.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 7 6.75ZM7.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 9.75A.75.75 0 0 1 3.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 9.75ZM7.75 9h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"/></svg>
-          <a href="https://gaspcr.github.io/portfolio/">Man in the Middle</a></li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg>
-          <a href="https://github.com/gaspcr">github.com/gaspcr</a></li>
+<header class="hero">
+  <div class="container">
+    <span class="pill"><b>Disponible</b> Integraciones · Automatización · IA</span>
+    <h1>Hago que tus sistemas <span class="grad">trabajen como uno solo.</span></h1>
+    <p class="lead">Conecto ERP, tiendas online, agendas, WhatsApp y modelos de IA para eliminar el trabajo manual. Y en paralelo, entreno redes neuronales para encontrar galaxias.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#proyectos">Ver proyectos
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"/></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/gaspcr">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+        GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>14+</strong><span>proyectos en producción y research</span></div>
+      <div class="stat"><strong>6</strong><span>sistemas integrados en un solo cliente</span></div>
+      <div class="stat"><strong>15 min</strong><span>ciclo de sincronización automática</span></div>
+      <div class="stat"><strong>3</strong><span>surveys astronómicos trabajados</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="destacado">
+  <div class="container feature">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--purple)">Caso destacado</div>
+      <h2>Un ecosistema completo para una clínica.</h2>
+      <p class="sub" style="margin-bottom:0">FileMaker es el centro clínico. Alrededor, construí las piezas que lo conectan con pacientes, ventas y gerencia, sin exportaciones manuales.</p>
+      <ul class="feat-list">
+        <li><span class="ic" style="color:var(--green)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"/></svg></span><div><b>Agendamiento online con pago</b><span>Reserva conectada en tiempo real a la agenda clínica.</span></div></li>
+        <li><span class="ic" style="color:var(--blue)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3Zm5.56-6.5a.75.75 0 1 1-1.06-1.06l1.72-1.72H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3Z"/></svg></span><div><b>Stock bidireccional con Shopify</b><span>Cada venta online descuenta inventario en el sistema clínico.</span></div></li>
+        <li><span class="ic" style="color:var(--orange)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.75C1 1.784 1.784 1 2.75 1h10.5c.966 0 1.75.784 1.75 1.75v7.5A1.75 1.75 0 0 1 13.25 12H9.06l-2.573 2.573A1.458 1.458 0 0 1 4 13.543V12H2.75A1.75 1.75 0 0 1 1 10.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h4.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg></span><div><b>Asistente interno por WhatsApp</b><span>Agenda, pacientes y boxes para el equipo, con permisos por rol.</span></div></li>
+        <li><span class="ic" style="color:var(--pink)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg></span><div><b>Reportería automática</b><span>La agenda llega sola a Google Sheets cada 15 minutos.</span></div></li>
       </ul>
     </div>
-    <hr class="sep">
-    <h2>Stack</h2>
-    <div class="chips">
-      <span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">FastAPI</span>
-      <span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">FileMaker</span><span class="chip">Shopify</span>
-      <span class="chip">WhatsApp API</span><span class="chip">Claude API</span><span class="chip">PyTorch</span><span class="chip">Railway</span>
+    <div class="flow reveal" aria-label="Diagrama: FileMaker conectado con agenda web, Shopify, WhatsApp y Google Sheets">
+      <svg viewBox="0 0 440 360" role="img">
+        <path class="wire" d="M220 180 C220 120 110 120 110 70"/>
+        <path class="wire" d="M220 180 C220 120 330 120 330 70"/>
+        <path class="wire" d="M220 180 C220 240 110 240 110 290"/>
+        <path class="wire" d="M220 180 C220 240 330 240 330 290"/>
+        <path class="pulse" stroke="var(--green)" d="M110 70 C110 120 220 120 220 180"/>
+        <path class="pulse" stroke="var(--blue)" style="animation-delay:-.8s" d="M220 180 C220 120 330 120 330 70"/>
+        <path class="pulse" stroke="var(--orange)" style="animation-delay:-1.6s" d="M110 290 C110 240 220 240 220 180"/>
+        <path class="pulse" stroke="var(--pink)" style="animation-delay:-2.3s" d="M220 180 C220 240 330 240 330 290"/>
+        <g class="node"><rect x="40" y="40" width="140" height="56" rx="10"/><text x="110" y="64" text-anchor="middle">Agenda web</text><text class="s" x="110" y="82" text-anchor="middle">reservas + pago</text></g>
+        <g class="node"><rect x="260" y="40" width="140" height="56" rx="10"/><text x="330" y="64" text-anchor="middle">Shopify</text><text class="s" x="330" y="82" text-anchor="middle">stock + órdenes</text></g>
+        <g class="node hub"><rect x="150" y="152" width="140" height="56" rx="10"/><text x="220" y="176" text-anchor="middle">FileMaker</text><text class="s" x="220" y="194" text-anchor="middle">fuente de verdad</text></g>
+        <g class="node"><rect x="40" y="264" width="140" height="56" rx="10"/><text x="110" y="288" text-anchor="middle">WhatsApp</text><text class="s" x="110" y="306" text-anchor="middle">asistente interno</text></g>
+        <g class="node"><rect x="260" y="264" width="140" height="56" rx="10"/><text x="330" y="288" text-anchor="middle">Google Sheets</text><text class="s" x="330" y="306" text-anchor="middle">reportería</text></g>
+      </svg>
     </div>
-  </aside>
-
-  <div>
-    <section class="box">
-      <div class="box-h"><b class="mono">gaspcr / README.md</b></div>
-      <div class="box-b readme">
-        <h2>Hola 👋</h2>
-        <p>Construyo software que une las piezas de una operación: el ERP con la tienda, la agenda con WhatsApp, las boletas con la contabilidad. Casi siempre en <code>Python</code>, desplegado en la nube y con la menor cantidad de trabajo manual posible.</p>
-        <ul>
-          <li>🔗 Integraciones FileMaker · Shopify · Google Workspace</li>
-          <li>🤖 Bots de WhatsApp y Telegram con extracción de datos por IA</li>
-          <li>🔭 Deep learning aplicado a surveys astronómicos (RCS2, Legacy Survey, HSC)</li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="sec-h"><h2 id="proj-title">Proyectos</h2><small>Los repos privados no muestran el código.</small></div>
-    <ol class="grid" id="grid"></ol>
-
-    <div class="sec-h"><h2>Lenguajes</h2><small>Según los proyectos de esta página</small></div>
-    <section class="box langs">
-      <div class="bar" id="bar"></div>
-      <ul class="lang-list" id="langs"></ul>
-    </section>
   </div>
-</main>
+</section>
+
+<section class="block" id="proyectos">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--green)">Proyectos</div>
+      <h2>Automatización, integraciones y web.</h2>
+      <p class="sub">Software que corre todos los días en negocios reales: cafeterías, clínicas, tiendas y agencias.</p>
+    </div>
+    <div class="cards">
+      <article class="card c-orange reveal">
+        <div class="top"><span class="ico"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M7.53 1.282a.5.5 0 0 1 .94 0l.478 1.306a7.492 7.492 0 0 0 4.464 4.464l1.305.478a.5.5 0 0 1 0 .94l-1.305.478a7.492 7.492 0 0 0-4.464 4.464l-.478 1.305a.5.5 0 0 1-.94 0l-.478-1.305a7.492 7.492 0 0 0-4.464-4.464L1.282 8.47a.5.5 0 0 1 0-.94l1.306-.478a7.492 7.492 0 0 0 4.464-4.464Z"/></svg></span><h3>Agente de boletas con IA</h3></div>
+        <p>Mandas una foto o PDF de una boleta por WhatsApp y Claude extrae los datos. El movimiento queda registrado en PostgreSQL y Google Sheets.</p>
+        <div class="foot"><span class="tag">Claude</span><span class="tag">FastAPI</span><span class="tag">Redis</span></div>
+      </article>
+      <article class="card c-green reveal">
+        <div class="top"><span class="ico"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"/></svg></span><h3>ERP para cafetería</h3></div>
+        <p>Una plataforma modular con contabilidad, inventario a costo promedio, gastos leídos automáticamente desde el correo del banco e informes para el contador.</p>
+        <div class="foot"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Prisma</span></div>
+      </article>
+      <article class="card c-blue reveal">
+        <div class="top"><span class="ico"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg></span><h3>Gastos desde Telegram</h3></div>
+        <p>Boletas, facturas y compras en la feria se registran desde un chat o un portal web. Postgres guarda los datos y el POS Fudo se sincroniza solo.</p>
+        <div class="foot"><span class="tag">Python</span><span class="tag">Telegram</span><span class="tag">Fudo</span></div>
+      </article>
+      <article class="card c-purple reveal">
+        <div class="top"><span class="ico"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3Zm5.56-6.5a.75.75 0 1 1-1.06-1.06l1.72-1.72H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3Z"/></svg></span><h3>Sync FileMaker ↔ Shopify</h3></div>
+        <p>Stock bidireccional con syncs programados, webhooks de órdenes, diff inteligente y manejo de rate limits.</p>
+        <div class="foot"><span class="tag">Python</span><span class="tag">Shopify</span><span class="tag">Railway</span></div>
+      </article>
+      <article class="card c-pink reveal">
+        <div class="top"><span class="ico"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM5.78 8.75a9.64 9.64 0 0 0 1.363 4.177c.255.426.542.832.857 1.215.245-.296.551-.705.857-1.215A9.64 9.64 0 0 0 10.22 8.75Zm4.44-1.5a9.64 9.64 0 0 0-1.363-4.177c-.307-.51-.612-.919-.857-1.215a9.927 9.927 0 0 0-.857 1.215A9.64 9.64 0 0 0 5.78 7.25Zm-5.944 1.5H1.543a6.507 6.507 0 0 0 4.666 5.5c-.123-.181-.24-.365-.352-.552-.715-1.192-1.437-2.874-1.581-4.948Zm-2.733-1.5h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.507 6.507 0 0 0-4.666 5.5Zm10.181 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.507 6.507 0 0 0 4.666-5.5Zm2.733-1.5a6.507 6.507 0 0 0-4.666-5.5c.123.181.24.365.353.552.714 1.192 1.436 2.874 1.58 4.948Z"/></svg></span><h3>Man in the Middle</h3></div>
+        <p>El sitio de mi empresa de soluciones tecnológicas: software a medida, integraciones y ecommerce.</p>
+        <div class="foot"><span class="tag">HTML</span><span class="tag">CSS</span><a class="link" href="https://gaspcr.github.io/portfolio/">Ver sitio →</a></div>
+      </article>
+      <article class="card c-green reveal">
+        <div class="top"><span class="ico"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/></svg></span><h3>Landing para Google Ads</h3></div>
+        <p>Una landing liviana, pensada para convertir el tráfico de las campañas de una agencia de publicidad.</p>
+        <div class="foot"><span class="tag">HTML</span><span class="tag">Google Ads</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="ciencia">
+  <div class="container sci">
+    <div class="sky reveal"><canvas id="sky" aria-hidden="true"></canvas><span class="cap mono">// campo simulado · no es data real</span></div>
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--blue)">Astrofísica computacional</div>
+      <h2>Deep learning sobre el cielo.</h2>
+      <p class="sub" style="margin-bottom:28px">Research en clasificación de imágenes astronómicas: cómo entrenar con un survey y aplicar el modelo en otro.</p>
+      <div class="sci-list">
+        <div class="sci-item"><h3><span style="color:var(--blue)">◆</span> CNN sobre RCS2</h3><p>Redes convolucionales entrenadas con imágenes del Red-sequence Cluster Survey 2 para buscar galaxias LRG.</p></div>
+        <div class="sci-item"><h3><span style="color:var(--purple)">◆</span> Legacy Survey → RCS2</h3><p>Lleva imágenes de Legacy Survey a las condiciones de observación de RCS2 para ampliar el set de entrenamiento. <a href="https://github.com/gaspcr/legacy_to_rcs2" style="color:var(--blue)">Código ↗</a></p></div>
+        <div class="sci-item"><h3><span style="color:var(--green)">◆</span> HSC → CFHT</h3><p>Pipeline que degrada imágenes de Hyper Suprime-Cam a la resolución y el ruido de CFHT.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--orange)">Stack</div>
+      <h2>Herramientas de todos los días.</h2>
+      <p class="sub">Elijo la herramienta según el problema, pero estas son las que más uso.</p>
+    </div>
+    <div class="stack reveal">
+      <span><i style="background:#3572A5"></i>Python</span><span><i style="background:#3178c6"></i>TypeScript</span><span><i style="background:#61dafb"></i>React</span>
+      <span><i style="background:#009688"></i>FastAPI</span><span><i style="background:#336791"></i>PostgreSQL</span><span><i style="background:#dc382d"></i>Redis</span>
+      <span><i style="background:#8250df"></i>FileMaker</span><span><i style="background:#95bf47"></i>Shopify</span><span><i style="background:#25d366"></i>WhatsApp API</span>
+      <span><i style="background:#d97757"></i>Claude API</span><span><i style="background:#ee4c2c"></i>PyTorch</span><span><i style="background:#a371f7"></i>Railway</span>
+      <span><i style="background:#4F5D95"></i>PHP · WordPress</span><span><i style="background:#DA5B0B"></i>Jupyter</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container reveal">
+    <h2>¿Tienes sistemas que no se hablan?</h2>
+    <p>Cuéntame qué necesitas conectar o automatizar y te propongo una solución con alcance y plazos claros.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://gaspcr.github.io/portfolio/#contacto">Conversemos</a>
+      <a class="btn btn-ghost" href="https://github.com/gaspcr">github.com/gaspcr</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <span>© <span id="y"></span> Rodrigo Ugarte Kunisky</span>
-  <a href="https://github.com/gaspcr">GitHub</a>
-  <a href="https://gaspcr.github.io/portfolio/">Man in the Middle</a>
+  <div class="container">
+    <span>© <span id="y"></span> Rodrigo Ugarte Kunisky</span>
+    <div class="r"><a href="https://github.com/gaspcr">GitHub</a><a href="https://gaspcr.github.io/portfolio/">Man in the Middle</a></div>
+  </div>
 </footer>
 
 <script>
-const LANG = {Python:'#3572A5',TypeScript:'#3178c6',JavaScript:'#f1e05a',HTML:'#e34c26',PHP:'#4F5D95','Jupyter Notebook':'#DA5B0B'};
-const P = [
-  {n:'skinmed_asistente', d:'Asistente de WhatsApp para el equipo médico de una clínica: agenda del día, pacientes y boxes, con permisos por rol.', l:'Python', t:['whatsapp','filemaker','redis'], c:['ia','integracion'], priv:1},
-  {n:'shopify_filemaker', d:'Sincronización bidireccional de stock entre FileMaker y Shopify: syncs programados, webhooks de órdenes y manejo de rate limits.', l:'Python', t:['shopify','filemaker','webhooks'], c:['integracion'], priv:1},
-  {n:'skinmed-agendamiento-fm', d:'Agendamiento online con pago, conectado en tiempo real a la agenda clínica en FileMaker.', l:'JavaScript', t:['agenda','pagos','filemaker'], c:['integracion','web'], priv:1},
-  {n:'skinmed_gdrive', d:'Worker que replica la agenda de FileMaker a Google Sheets cada 15 minutos para reportería de gerencia.', l:'Python', t:['google-sheets','railway'], c:['integracion'], priv:1},
-  {n:'wsp_agent', d:'Agente de WhatsApp que registra compras y ventas desde fotos o PDFs de boletas usando Claude para extraer los datos.', l:'Python', t:['claude','fastapi','postgres'], c:['ia'], priv:1},
-  {n:'kumon-gastos', d:'Registro automático de gastos (boletas, facturas, feria) desde Telegram y portal web, sincronizado al POS Fudo.', l:'Python', t:['telegram','ocr','fudo'], c:['ia','integracion'], priv:1},
-  {n:'kumon', d:'CRM/ERP modular para una cafetería: contabilidad, inventario con costo promedio, banco e informes para el contador.', l:'TypeScript', t:['react','prisma','postgres'], c:['web'], priv:1},
-  {n:'rcs2', d:'Entrenamiento de redes convolucionales sobre imágenes del survey RCS2 para la búsqueda de galaxias LRG.', l:'Jupyter Notebook', t:['cnn','astronomía'], c:['ciencia'], priv:1},
-  {n:'legacy_to_rcs2', d:'Herramientas para llevar imágenes de Legacy Survey a las condiciones de observación de RCS2.', l:'Python', t:['astronomía','imágenes'], c:['ciencia'], url:'https://github.com/gaspcr/legacy_to_rcs2'},
-  {n:'HSC_TO_CFHT', d:'Pipeline de degradación de imágenes HSC a la resolución y ruido de CFHT.', l:'Python', t:['astronomía','pipeline'], c:['ciencia'], priv:1, fork:1},
-  {n:'portfolio', d:'Sitio de Man in the Middle: soluciones tecnológicas, integración de sistemas y ecommerce para empresas.', l:'HTML', t:['landing'], c:['web'], url:'https://github.com/gaspcr/portfolio', home:'https://gaspcr.github.io/portfolio/'},
-  {n:'rclone-panoramix-site', d:'Sitio estático publicado en GitHub Pages.', l:'HTML', t:['github-pages'], c:['web'], url:'https://github.com/gaspcr/rclone-panoramix-site', home:'https://gaspcr.github.io/rclone-panoramix-site/'},
-  {n:'landing-todopublicidad', d:'Landing de conversión para campañas de Google Ads.', l:'HTML', t:['google-ads','landing'], c:['web'], priv:1},
-  {n:'wsp-project', d:'Aplicación web para gestionar llaves de la API de WhatsApp.', l:'PHP', t:['whatsapp'], c:['web'], url:'https://github.com/gaspcr/wsp-project'},
-];
-const ICON_REPO='<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>';
-const ICON_LOCK='<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a4 4 0 0 1 8 0v2h.25c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25v-5.5C2 6.784 2.784 6 3.75 6H4Zm8.25 3.5h-8.5a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25ZM10.5 6V4a2.5 2.5 0 1 0-5 0v2Z"/></svg>';
-const ICON_LINK='<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg>';
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const grid=document.getElementById('grid');
-grid.innerHTML=P.map(p=>`
-<li class="card" data-c="${p.c.join(' ')}">
-  <div class="card-h">${p.priv?ICON_LOCK:ICON_REPO}
-    <span class="name mono">${p.url?`<a href="${p.url}">${esc(p.n)}</a>`:`<span>${esc(p.n)}</span>`}</span>
-    <span class="label">${p.priv?'Privado':'Público'}${p.fork?' · fork':''}</span>
-  </div>
-  <p>${esc(p.d)}</p>
-  <div class="topics">${p.t.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>
-  <div class="card-f">
-    <span class="lang"><span class="dot" style="background:${LANG[p.l]||'#8b949e'}"></span>${esc(p.l)}</span>
-    ${p.home?`<a href="${p.home}">${ICON_LINK}Ver sitio</a>`:''}
-  </div>
-</li>`).join('');
-
-const tabs=[...document.querySelectorAll('.tab')];
-const cards=[...grid.children];
-tabs.forEach(t=>{
-  const f=t.dataset.f;
-  t.querySelector('.count').textContent=f==='all'?cards.length:cards.filter(c=>c.dataset.c.split(' ').includes(f)).length;
-  t.addEventListener('click',()=>{
-    tabs.forEach(x=>x.setAttribute('aria-selected',x===t));
-    cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.c.split(' ').includes(f)));
-    document.getElementById('proj-title').textContent=f==='all'?'Proyectos':t.textContent.replace(/\d+/,'').trim();
-  });
-});
-
-const cnt={};P.forEach(p=>cnt[p.l]=(cnt[p.l]||0)+1);
-const L=Object.entries(cnt).sort((a,b)=>b[1]-a[1]);
-document.getElementById('bar').innerHTML=L.map(([l,n])=>`<span style="flex:${n};background:${LANG[l]}" title="${l}"></span>`).join('');
-document.getElementById('langs').innerHTML=L.map(([l,n])=>`<li><span class="dot" style="background:${LANG[l]}"></span><b>${l}</b><span>${(100*n/P.length).toFixed(1)}%</span></li>`).join('');
-
 document.getElementById('y').textContent=new Date().getFullYear();
+const nav=document.querySelector('.nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
 const root=document.documentElement;
-try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t;}catch(e){}
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
 document.getElementById('theme').addEventListener('click',()=>{
-  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
-  root.dataset.theme=dark?'light':'dark';
-  try{localStorage.setItem('theme',root.dataset.theme);}catch(e){}
+  const isDark=root.dataset.theme?root.dataset.theme==='dark':!matchMedia('(prefers-color-scheme: light)').matches;
+  root.dataset.theme=isDark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
 });
+
+// simulated star/galaxy field
+(()=>{
+  const c=document.getElementById('sky'),x=c.getContext('2d');
+  let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+  function draw(){
+    const w=c.clientWidth,h=c.clientHeight,d=devicePixelRatio||1;
+    c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);s=7;
+    x.fillStyle='#010409';x.fillRect(0,0,w,h);
+    for(let i=0;i<420;i++){const a=r()*.8+.1;x.fillStyle=`rgba(230,237,243,${a*.7})`;x.fillRect(r()*w,r()*h,r()<.9?1:1.6,r()<.9?1:1.6)}
+    const cols=['255,170,90','255,200,140','170,200,255'];
+    for(let i=0;i<14;i++){
+      const gx=r()*w,gy=r()*h,rad=6+r()*16,rot=r()*Math.PI,el=.35+r()*.6,col=cols[Math.floor(r()*3)];
+      x.save();x.translate(gx,gy);x.rotate(rot);x.scale(1,el);
+      const g=x.createRadialGradient(0,0,0,0,0,rad);g.addColorStop(0,`rgba(${col},.95)`);g.addColorStop(.3,`rgba(${col},.35)`);g.addColorStop(1,`rgba(${col},0)`);
+      x.fillStyle=g;x.beginPath();x.arc(0,0,rad,0,7);x.fill();x.restore();
+    }
+    const tx=w*.62,ty=h*.42;
+    x.strokeStyle='#3fb950';x.lineWidth=1.5;x.setLineDash([4,3]);x.strokeRect(tx-26,ty-26,52,52);x.setLineDash([]);
+    const g=x.createRadialGradient(tx,ty,0,tx,ty,18);g.addColorStop(0,'rgba(255,150,80,1)');g.addColorStop(.35,'rgba(255,120,60,.45)');g.addColorStop(1,'rgba(255,120,60,0)');
+    x.fillStyle=g;x.beginPath();x.arc(tx,ty,18,0,7);x.fill();
+    x.font='500 11px "JetBrains Mono",monospace';x.fillStyle='#3fb950';x.fillText('LRG  p=0.97',tx-26,ty-32);
+  }
+  draw();addEventListener('resize',draw);
+})();
 </script>
 </body>
 </html>
